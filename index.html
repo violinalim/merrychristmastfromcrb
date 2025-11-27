@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Surat Kejutan Anjing 🎄</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <h1 class="title">Surat Spesial</h1>
+    <p class="subtitle">Klik surat di bawah ini kalau berani 😈</p>
+
+    <button id="btn-surat" class="envelope-button">
+      <span class="envelope-flap"></span>
+      <span class="envelope-body"></span>
+      <span class="envelope-glow"></span>
+      <span class="envelope-text">BUKA SURAT</span>
+    </button>
+  </div>
+
+  <!-- POPUP ANJING + KEMBANG API -->
+  <div id="popup-dog" class="overlay hidden">
+    <div class="overlay-bg"></div>
+
+    <!-- Lapisan kembang api -->
+    <div class="fireworks-layer">
+      <div class="firework f1"></div>
+      <div class="firework f2"></div>
+      <div class="firework f3"></div>
+      <div class="firework f4"></div>
+    </div>
+
+    <!-- Kartu anjing -->
+    <div class="dog-card">
+      <div class="dog-img-wrap">
+        <img
+          id="dog-img"
+          src="https://plcl.me/images/JQnDf.png"
+          alt="Surprise dog"
+        />
+        <!-- area klik hidung -->
+        <button
+          id="nose-btn"
+          class="nose-hotspot"
+          aria-label="Klik hidung"
+        ></button>
+      </div>
+
+      <div id="dog-text" class="dog-text"></div>
+
+      <button id="close-popup" class="close-btn">Tutup</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

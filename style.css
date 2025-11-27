@@ -1,0 +1,300 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top, #2b133f, #05000a 55%);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #f8f4ff;
+}
+
+.page {
+  text-align: center;
+  padding: 24px;
+}
+
+.title {
+  font-size: 32px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 26px;
+}
+
+/* ENVELOPE BUTTON */
+.envelope-button {
+  position: relative;
+  width: 220px;
+  height: 140px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  filter: drop-shadow(0 0 16px rgba(255, 0, 140, 0.6));
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.envelope-button:hover {
+  transform: translateY(-4px) scale(1.03);
+  filter: drop-shadow(0 0 26px rgba(255, 0, 140, 0.9));
+}
+
+.envelope-body {
+  position: absolute;
+  inset: 18px 10px 10px;
+  background: linear-gradient(145deg, #1a0b26, #3b174f);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 18px 35px rgba(0, 0, 0, 0.6);
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  height: 60px;
+  background: linear-gradient(145deg, #ff3b9d, #ffea5b);
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  box-shadow: 0 12px 26px rgba(255, 59, 157, 0.75);
+}
+
+.envelope-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.4), transparent 60%);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.envelope-text {
+  position: absolute;
+  inset: auto 0 20px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.2em;
+  text-indent: 0.2em;
+  color: #ffe9ff;
+}
+
+/* POPUP */
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.overlay-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.95));
+}
+
+/* FIREWORKS LAYER */
+.fireworks-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.firework {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow:
+    0 0 0 0 #ff4b9f,
+    0 0 0 0 #ffe66d,
+    0 0 0 0 #6df7ff,
+    0 0 0 0 #b86dff,
+    0 0 0 0 #ff9b6d,
+    0 0 0 0 #6dffb5;
+  animation: explosion 2.2s ease-out infinite;
+}
+
+.firework.f1 {
+  top: 20%;
+  left: 18%;
+  animation-delay: 0s;
+}
+
+.firework.f2 {
+  top: 32%;
+  right: 16%;
+  animation-delay: 0.4s;
+}
+
+.firework.f3 {
+  bottom: 18%;
+  left: 24%;
+  animation-delay: 0.8s;
+}
+
+.firework.f4 {
+  bottom: 12%;
+  right: 20%;
+  animation-delay: 1.2s;
+}
+
+@keyframes explosion {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+    box-shadow:
+      0 0 0 0 #ff4b9f,
+      0 0 0 0 #ffe66d,
+      0 0 0 0 #6df7ff,
+      0 0 0 0 #b86dff,
+      0 0 0 0 #ff9b6d,
+      0 0 0 0 #6dffb5;
+  }
+  10% {
+    opacity: 1;
+  }
+  45% {
+    transform: scale(1);
+    box-shadow:
+      -120px -80px 0 16px rgba(255, 75, 159, 0.95),
+      90px -60px 0 18px rgba(255, 230, 109, 0.95),
+      -70px 100px 0 14px rgba(109, 247, 255, 0.9),
+      110px 80px 0 18px rgba(184, 109, 255, 0.95),
+      -20px -120px 0 16px rgba(255, 155, 109, 0.95),
+      40px 130px 0 16px rgba(109, 255, 181, 0.9);
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+    box-shadow:
+      -180px -130px 0 0 rgba(255, 75, 159, 0),
+      130px -80px 0 0 rgba(255, 230, 109, 0),
+      -100px 140px 0 0 rgba(109, 247, 255, 0),
+      160px 120px 0 0 rgba(184, 109, 255, 0),
+      -30px -170px 0 0 rgba(255, 155, 109, 0),
+      60px 180px 0 0 rgba(109, 255, 181, 0);
+  }
+}
+
+/* DOG CARD */
+.dog-card {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(145deg, rgba(18, 0, 30, 0.9), rgba(63, 10, 94, 0.98));
+  border-radius: 24px;
+  padding: 24px 22px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 0 50px rgba(255, 0, 140, 0.9),
+    0 0 80px rgba(255, 255, 255, 0.55);
+  max-width: 340px;
+  width: 90%;
+  text-align: center;
+}
+
+.dog-img-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.dog-img-wrap img {
+  width: 260px;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+/* area klik hidung (posisi kira-kira di tengah bawah muka) */
+.nose-hotspot {
+  position: absolute;
+  left: 50%;
+  top: 62%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: none;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.06), transparent 60%);
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.15);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+.nose-hotspot:active {
+  transform: translate(-50%, -50%) scale(0.92);
+  box-shadow: 0 0 26px rgba(255, 255, 255, 0.7);
+}
+
+/* TEXT BOX */
+.dog-text {
+  margin-top: 14px;
+  padding: 12px 16px;
+  border-radius: 16px;
+  background: rgba(8, 0, 20, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 14px;
+  line-height: 1.5;
+  color: #ffeefe;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+  min-height: 48px;
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+  margin-top: 12px;
+  padding: 6px 18px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #ff3b9d, #ffe66d);
+  color: #2b0d3e;
+  font-weight: 700;
+  box-shadow: 0 0 18px rgba(255, 59, 157, 0.6);
+}
+
+.close-btn:hover {
+  box-shadow: 0 0 26px rgba(255, 230, 109, 0.9);
+  transform: translateY(-1px);
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .title {
+    font-size: 24px;
+  }
+  .subtitle {
+    font-size: 13px;
+  }
+  .dog-card {
+    padding: 20px 16px 14px;
+  }
+}
